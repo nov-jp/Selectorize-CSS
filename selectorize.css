@@ -1,5 +1,20 @@
 /**
  * Selectorize CSS
+ * Copyright (C) 2025 nov-jp (https://github.com/nov-jp)
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 [style~="--columns--:"],[style~="--flex-flow--:"],[style~="--grid--:"],[style~="--gt-all_flex-flow--:"],[style~="--gt-all_grid--:"]{&:where(ol,ul,menu){list-style-position:inside;padding:0;}&:where(ul,menu){list-style-type:none;}&:where(li,dd),&>*,&>*>:where(dd){margin:0;}}
 [style~="--font-size--:"],[style~="--font-style--:"],[style~="--font-weight--:"],[style~="--text-decoration--:"],[style~="--text-shadow--:"],[style~="--text-stroke--:"],[style~="--x-text-marker--:"]{background:none;color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;text-decoration:none;}

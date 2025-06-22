@@ -32,8 +32,8 @@ Tailwind CSSに代表される**ユーティリティファーストなスタイ
   - `--item_PROPERTY-NAME--:` を `ol`, `ul`, `dl`, `div`, `table`, `tbody`, `thead`, `tfoot`, `tr` に設定すると、その直近の `li`, `dt`, `dd`, `td`, `th` をスタイリングします。
   - `--dt_PROPERTY-NAME--:` を `dl`, `div` に設定すると、その直近の `dt` をスタイリングします。
   - `--dd_PROPERTY-NAME--:` を `dl`, `div` に設定すると、その直近の `dd` をスタイリングします。
-  - `--before_content--:` を設定すると、その`::before`擬似要素 を追加できます。
-  - `--after_content--:` を設定すると、その`::after`擬似要素 を追加できます。
+  - `--before_content--:` を設定すると、その`::before`擬似要素を追加できます。
+  - `--after_content--:` を設定すると、その`::after`擬似要素を追加できます。
   - `--mq-MEDIA-QUERY-LIST_PROPERTY-NAME--:` を設定すると、指定したメディアクエリの条件に応じてスタイリングします。
   - `--cq-CONTAINER-CONDITION_PROPERTY-NAME--:` を設定すると、指定したコンテナクエリの条件に応じてスタイリングします。
 
