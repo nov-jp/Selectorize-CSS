@@ -1,0 +1,154 @@
+/**
+ * Selectorize CSS
+ */
+[style~="--columns--:"],[style~="--flex-flow--:"],[style~="--grid--:"],[style~="--gt-all_flex-flow--:"],[style~="--gt-all_grid--:"]{&:where(ol,ul,menu){list-style-position:inside;padding:0;}&:where(ul,menu){list-style-type:none;}&:where(li,dd),&>*,&>*>:where(dd){margin:0;}}
+[style~="--font-size--:"],[style~="--font-style--:"],[style~="--font-weight--:"],[style~="--text-decoration--:"],[style~="--text-shadow--:"],[style~="--text-stroke--:"],[style~="--x-text-marker--:"]{background:none;color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;text-decoration:none;}
+[style~="--gt-all_background--:"]>*{background:var(--gt-all_background--);}
+[style~="--gt-all_border--:"]>*{border:var(--gt-all_border--);}
+[style~="--gt-all_border-block--:"]>*{border-block:var(--gt-all_border-block--);}
+[style~="--gt-all_border-block-start--:"]>*{border-block-start:var(--gt-all_border-block-start--);}
+[style~="--gt-all_border-block-end--:"]>*{border-block-end:var(--gt-all_border-block-end--);}
+[style~="--gt-all_border-inline--:"]>*{border-inline:var(--gt-all_border-inline--);}
+[style~="--gt-all_border-inline-start--:"]>*{border-inline-start:var(--gt-all_border-inline-start--);}
+[style~="--gt-all_border-inline-end--:"]>*{border-inline-end:var(--gt-all_border-inline-end--);}
+[style~="--gt-all_border-radius--:"]>*{border-radius:var(--gt-all_border-radius--);}
+[style~="--gt-all_color--:"]>*{color:var(--gt-all_color--);}
+[style~="--gt-all_flex--:"]>*{flex:var(--gt-all_flex--);}
+[style~="--gt-all_flex-flow--:"]>*{display:flex;flex-flow:var(--gt-all_flex-flow--);}
+[style~="--gt-all_gap--:"]>*{gap:var(--gt-all_gap--);}
+[style~="--gt-all_grid--:"]>*{display:grid;grid:var(--gt-all_grid--);}
+[style~="--gt-all_grid-area--:"]>*{grid-area:var(--gt-all_grid-area--);}
+[style~="--gt-all_padding--:"]>*{padding:var(--gt-all_padding--);}
+[style~="--gt-all_padding-block--:"]>*{padding-block:var(--gt-all_padding-block--);}
+[style~="--gt-all_padding-inline--:"]>*{padding-inline:var(--gt-all_padding-inline--);}
+[style~="--gt-all_place-content--:"]>*{place-content:var(--gt-all_place-content--);}
+[style~="--gt-all_place-items--:"]>*{place-items:var(--gt-all_place-items--);}
+[style~="--item_background--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){background:var(--item_background--);}}
+[style~="--item_border--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border:var(--item_border--);}}
+[style~="--item_border-block--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-block:var(--item_border-block--);}}
+[style~="--item_border-block-start--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-block-start:var(--item_border-block-start--);}}
+[style~="--item_border-block-end--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-block-end:var(--item_border-block-end--);}}
+[style~="--item_border-inline--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-inline:var(--item_border-inline--);}}
+[style~="--item_border-inline-start--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-inline-start:var(--item_border-inline-start--);}}
+[style~="--item_border-inline-end--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-inline-end:var(--item_border-inline-end--);}}
+[style~="--item_border-radius--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){border-radius:var(--item_border-radius--);}}
+[style~="--item_color--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){color:var(--item_color--);}}
+[style~="--item_padding--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){padding:var(--item_padding--);}}
+[style~="--item_padding-block--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){padding-block:var(--item_padding-block--);}}
+[style~="--item_padding-inline--:"]{&>*>*>:where(td,th),&>*>:where(dt,dd,td,th),&>:where(li,dt,dd,td,th){padding-inline:var(--item_padding-inline--);}}
+[style~="--dt_flex--:"]{&>*>:where(dt),&>:where(dt){flex:var(--dt_flex--);}}
+[style~="--dt_grid-area--:"]{&>*>:where(dt),&>:where(dt){grid-area:var(--dt_grid-area--);}}
+[style~="--dt_place-self--:"]{&>*>:where(dt),&>:where(dt){place-self:var(--dt_place-self--);}}
+[style~="--dd_flex--:"]{&>*>:where(dd),&>:where(dd){flex:var(--dd_flex--);}}
+[style~="--dd_grid-area--:"]{&>*>:where(dd),&>:where(dd){grid-area:var(--dd_grid-area--);}}
+[style~="--dd_place-self--:"]{&>*>:where(dd),&>:where(dd){place-self:var(--dd_place-self--);}}
+[style~="--before_content--:"]::before{content:var(--before_content--);}
+[style~="--after_content--:"]::after{content:var(--after_content--);}
+[style~="--x-row-gap--:"]:where([style~="--columns--:"])>:has(+*){margin-block-end:var(--x-row-gap--);}
+[style~="--x-text-marker--:"]{text-decoration:underline;text-decoration-color:var(--x-text-marker--);text-decoration-thickness:50%;text-decoration-skip-ink:none;text-underline-offset:-50%;text-underline-position:under;}
+[style~="--aspect-ratio--:"]{&{aspect-ratio:var(--aspect-ratio--);}&:where(iframe){block-size:auto;inline-size:100%;}}
+[style~="--background--:"]{&{background:var(--background--);background-attachment:scroll;}&[style~="--background-attachment--:"]{&{clip-path:inset(0);}&::before{background:inherit;content:"";position:fixed;inset:0;z-index:-1;}&::after{content:none;}}}
+[style~="--block-size--:"]{block-size:var(--block-size--);}
+[style~="--min-block-size--:"]{min-block-size:var(--min-block-size--);}
+[style~="--max-block-size--:"]{max-block-size:var(--max-block-size--);}
+[style~="--border--:"]{border:var(--border--);}
+[style~="--border-style--:"]{border-style:var(--border-style--);}
+[style~="--border-width--:"]{border-width:var(--border-width--);}
+[style~="--border-color--:"]{border-color:var(--border-color--);}
+[style~="--border-block--:"]{border-block:var(--border-block--);}
+[style~="--border-block-start--:"]{border-block-start:var(--border-block-start--);}
+[style~="--border-block-end--:"]{border-block-end:var(--border-block-end--);}
+[style~="--border-inline--:"]{border-inline:var(--border-inline--);}
+[style~="--border-inline-start--:"]{border-inline-start:var(--border-inline-start--);}
+[style~="--border-inline-end--:"]{border-inline-end:var(--border-inline-end--);}
+[style~="--border-collapse--:"]{border-collapse:var(--border-collapse--);}
+[style~="--border-radius--:"]{border-radius:var(--border-radius--);}
+[style~="--border-spacing--:"]{border-spacing:var(--border-spacing--);}
+[style~="--box-shadow--:"]{box-shadow:var(--box-shadow--);}
+[style~="--caption-side--:"]{caption-side:var(--caption-side--);}
+[style~="--color--:"]{color:var(--color--);}
+[style~="--column-rule--:"]{column-rule:var(--column-rule--);}
+[style~="--column-span--:"]{column-span:var(--column-span--);}
+[style~="--columns--:"]{&{columns:var(--columns--);}&>*{break-inside:avoid-column;}}
+[style~="--container-type--:"]{container-type:var(--container-type--);}
+[style~="--flex--:"]{flex:var(--flex--);}
+[style~="--flex-flow--:"]{display:flex;flex-flow:var(--flex-flow--);}
+[style~="--font-family--:"]{font-family:var(--font-family--);}
+[style~="--font-size--:"]{font-size:var(--font-size--);}
+[style~="--font-style--:"]{font-style:var(--font-style--);}
+[style~="--font-weight--:"]{font-weight:var(--font-weight--);}
+[style~="--gap--:"]{gap:var(--gap--);}
+[style~="--row-gap--:"]{row-gap:var(--row-gap--);}
+[style~="--column-gap--:"]{column-gap:var(--column-gap--);}
+[style~="--grid--:"]{display:grid;grid:var(--grid--);}
+[style~="--grid-area--:"]{grid-area:var(--grid-area--);}
+[style~="--inline-size--:"]{inline-size:var(--inline-size--);}
+[style~="--min-inline-size--:"]{min-inline-size:var(--min-inline-size--);}
+[style~="--max-inline-size--:"]{max-inline-size:var(--max-inline-size--);}
+[style~="--list-style--:"]{list-style:var(--list-style--);}
+[style~="--list-style-type--:"]{list-style-type:var(--list-style-type--);}
+[style~="--list-style-image--:"]{list-style-image:var(--list-style-image--);}
+[style~="--list-style-position--:"]{list-style-position:var(--list-style-position--);}
+[style~="--margin--:"]{margin:var(--margin--);}
+[style~="--margin-block--:"]{margin-block:var(--margin-block--);}
+[style~="--margin-block-start--:"]{margin-block-start:var(--margin-block-start--);}
+[style~="--margin-block-end--:"]{margin-block-end:var(--margin-block-end--);}
+[style~="--margin-inline--:"]{margin-inline:var(--margin-inline--);}
+[style~="--margin-inline-start--:"]{margin-inline-start:var(--margin-inline-start--);}
+[style~="--margin-inline-end--:"]{margin-inline-end:var(--margin-inline-end--);}
+[style~="--object-fit--:"]{object-fit:var(--object-fit--);}
+[style~="--object-position--:"]{object-position:var(--object-position--);}
+[style~="--overflow--:"]{overflow:var(--overflow--);}
+[style~="--padding--:"]{padding:var(--padding--);}
+[style~="--padding-block--:"]{padding-block:var(--padding-block--);}
+[style~="--padding-block-start--:"]{padding-block-start:var(--padding-block-start--);}
+[style~="--padding-block-end--:"]{padding-block-end:var(--padding-block-end--);}
+[style~="--padding-inline--:"]{padding-inline:var(--padding-inline--);}
+[style~="--padding-inline-start--:"]{padding-inline-start:var(--padding-inline-start--);}
+[style~="--padding-inline-end--:"]{padding-inline-end:var(--padding-inline-end--);}
+[style~="--place-content--:"]{place-content:var(--place-content--);}
+[style~="--place-items--:"]{place-items:var(--place-items--);}
+[style~="--place-self--:"]{place-self:var(--place-self--);}
+[style~="--table-layout--:"]{table-layout:var(--table-layout--);}
+[style~="--text-align--:"]{text-align:var(--text-align--);}
+[style~="--text-decoration--:"]{text-decoration:var(--text-decoration--);}
+[style~="--text-shadow--:"]{text-shadow:var(--text-shadow--);}
+[style~="--text-stroke--:"]{paint-order:stroke;-webkit-text-stroke:var(--text-stroke--);text-stroke:var(--text-stroke--);}
+[style~="--text-wrap--:"]{text-wrap:var(--text-wrap--);}
+[style~="--vertical-align--:"]{vertical-align:var(--vertical-align--);}
+[style~="--white-space--:"]{white-space:var(--white-space--);}
+[style~="--writing-mode--:"]{writing-mode:var(--writing-mode--);}
+[style~="--display--:"]{display:var(--display--);}
+@media (hover:hover) and (pointer:fine){
+	[style~="--mq-has-pointer_max-block-size--:"]{max-block-size:var(--mq-has-pointer_max-block-size--);}
+}
+@media not ((hover:hover) and (pointer:fine)){
+	[style~="--mq-no-pointer_max-block-size--:"]{max-block-size:var(--mq-no-pointer_max-block-size--);}
+}
+@container (inline-size>512px){
+	[style~="--cq-i-gt-s_flex--:"]{flex:var(--cq-i-gt-s_flex--);}
+	[style~="--cq-i-gt-s_flex-flow--:"]{display:flex;flex-flow:var(--cq-i-gt-s_flex-flow--);}
+	[style~="--cq-i-gt-s_grid--:"]{display:grid;grid:var(--cq-i-gt-s_grid--);}
+	[style~="--cq-i-gt-s_grid-area--:"]{grid-area:var(--cq-i-gt-s_grid-area--);}
+	[style~="--cq-i-gt-s_place-content--:"]{place-content:var(--cq-i-gt-s_place-content--);}
+	[style~="--cq-i-gt-s_place-items--:"]{place-items:var(--cq-i-gt-s_place-items--);}
+	[style~="--cq-i-gt-s_place-self--:"]{place-self:var(--cq-i-gt-s_place-self--);}
+}
+@container (inline-size>768px){
+	[style~="--cq-i-gt-m_flex--:"]{flex:var(--cq-i-gt-m_flex--);}
+	[style~="--cq-i-gt-m_flex-flow--:"]{display:flex;flex-flow:var(--cq-i-gt-m_flex-flow--);}
+	[style~="--cq-i-gt-m_grid--:"]{display:grid;grid:var(--cq-i-gt-m_grid--);}
+	[style~="--cq-i-gt-m_grid-area--:"]{grid-area:var(--cq-i-gt-m_grid-area--);}
+	[style~="--cq-i-gt-m_place-content--:"]{place-content:var(--cq-i-gt-m_place-content--);}
+	[style~="--cq-i-gt-m_place-items--:"]{place-items:var(--cq-i-gt-m_place-items--);}
+	[style~="--cq-i-gt-m_place-self--:"]{place-self:var(--cq-i-gt-m_place-self--);}
+}
+@container (inline-size>1024px){
+	[style~="--cq-i-gt-l_flex--:"]{flex:var(--cq-i-gt-l_flex--);}
+	[style~="--cq-i-gt-l_flex-flow--:"]{display:flex;flex-flow:var(--cq-i-gt-l_flex-flow--);}
+	[style~="--cq-i-gt-l_grid--:"]{display:grid;grid:var(--cq-i-gt-l_grid--);}
+	[style~="--cq-i-gt-l_grid-area--:"]{grid-area:var(--cq-i-gt-l_grid-area--);}
+	[style~="--cq-i-gt-l_place-content--:"]{place-content:var(--cq-i-gt-l_place-content--);}
+	[style~="--cq-i-gt-l_place-items--:"]{place-items:var(--cq-i-gt-l_place-items--);}
+	[style~="--cq-i-gt-l_place-self--:"]{place-self:var(--cq-i-gt-l_place-self--);}
+}
