@@ -102,7 +102,6 @@
 [style~="--max-inline-size--:"]{max-inline-size:var(--max-inline-size--);}
 [style~="--list-style--:"]{list-style:var(--list-style--);}
 [style~="--list-style-type--:"]{list-style-type:var(--list-style-type--);}
-[style~="--list-style-image--:"]{list-style-image:var(--list-style-image--);}
 [style~="--list-style-position--:"]{list-style-position:var(--list-style-position--);}
 [style~="--margin--:"]{margin:var(--margin--);}
 [style~="--margin-block--:"]{margin-block:var(--margin-block--);}
@@ -132,14 +131,7 @@
 [style~="--text-wrap--:"]{text-wrap:var(--text-wrap--);}
 [style~="--vertical-align--:"]{vertical-align:var(--vertical-align--);}
 [style~="--white-space--:"]{white-space:var(--white-space--);}
-[style~="--writing-mode--:"]{writing-mode:var(--writing-mode--);}
 [style~="--display--:"]{display:var(--display--);}
-@media (hover:hover) and (pointer:fine){
-	[style~="--mq-has-pointer_max-block-size--:"]{max-block-size:var(--mq-has-pointer_max-block-size--);}
-}
-@media not ((hover:hover) and (pointer:fine)){
-	[style~="--mq-no-pointer_max-block-size--:"]{max-block-size:var(--mq-no-pointer_max-block-size--);}
-}
 @container (inline-size>512px){
 	[style~="--cq-i-gt-s_flex--:"]{flex:var(--cq-i-gt-s_flex--);}
 	[style~="--cq-i-gt-s_flex-flow--:"]{display:flex;flex-flow:var(--cq-i-gt-s_flex-flow--);}
