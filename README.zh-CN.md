@@ -1,4 +1,4 @@
-[日本語](README.md) | [Deutsch](README.de.md) | [English](README.en.md) | [Espanol](README.es.md) | [Francais](README.fr.md) | [Русский](README.ru.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md)
+[English](README.md) | [Deutsch](README.de.md) | [Espanol](README.es.md) | [Francais](README.fr.md) | [日本語](README.ja.md) | [Русский](README.ru.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md)
 
 > **备注:** 本 `README` 由 [ChatGPT](https://chatgpt.com/) 从日文翻译而来，敬请谅解。
 
