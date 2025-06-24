@@ -1,130 +1,199 @@
-翻譯：[日語](README.md), [德語](README.de.md), [英語](README.en.md), [西班牙語](README.es.md), [法語](README.fr.md), [俄語](README.ru.md), [簡體中文](README.zh-CN.md), [繁體中文](README.zh-TW.md)
+[日本語](README.md) | [Deutsch](README.de.md) | [English](README.en.md) | [Espanol](README.es.md) | [Francais](README.fr.md) | [Русский](README.ru.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md)
 
-此 README 由 [Google Gemini](https://gemini.google.com) 從日語翻譯而來。請知悉。
+> **備註：** 本 `README` 由 [ChatGPT](https://chatgpt.com/) 從日文翻譯而來，敬請見諒。
 
------
+---
 
 # Selectorize CSS
 
-一個輕量級的工具型 CSS，它使用 CSS 自訂屬性作為選擇器來應用樣式。
+一個利用自訂屬性作為選擇器的輕量且簡潔的實用工具 CSS。
 
------
+它拯救了常被嫌棄的 `style` 屬性，實現了直覺且強大的 CSS 標記。
+
+---
 
 ## 概述
 
-Selectorize CSS 實現了以「實用工具優先」（utility-first）的樣式方法，類似於 Tailwind CSS，透過利用 **HTML `style` 屬性中設定的 CSS 自訂屬性**及其對應的 CSS 屬性選擇器來實現。這使得 CSS 標記直觀靈活，無需管理類別名稱。
+Selectorize CSS 透過在 HTML 的 `style` 屬性中設定自訂屬性，並搭配相對應的 CSS 屬性選擇器，實現以 Tailwind CSS 為代表的實用工具優先（utility-first）樣式方法。此方式無需管理類別名稱，實現直覺且靈活的 CSS 標記。
 
------
+---
 
 ## 特點
 
-  * **零建構：**
-    無需任何特殊的建構過程。它作為純粹的 CSS (Vanilla CSS) 運行。
-  * **低學習成本：**
-    您可以像直接在 HTML `style` 屬性中編寫屬性一樣使用它。這提供了一種更直觀、更新穎的樣式方法，與需要記住大量類別名稱的常見實用工具優先 CSS 不同。
-  * **優化 CSS 程式碼量：**
-    為網站特定頁面或元素持續添加 CSS 會導致程式碼量膨脹。Selectorize CSS 透過預設的自訂屬性應用樣式，可以減少冗餘的類別定義，最大限度地減少整體 CSS 程式碼的增加。
-  * **高效分離屬性和值：**
-    它避免了常見實用工具 CSS 中常見的「`background-red`」、「`border-red`」、「`text-red`」等按值重複類別定義的大量增加。透過使用自訂屬性分離屬性（`background`、`border`、`color` 等）和值（`red`、`green`、`blue` 等），可以顯著減少 CSS 程式碼量並簡化管理。
-  * **維護語義化的 HTML 結構：**
-    HTML 的文件結構和 `class` 屬性可以專注於語義化，而與外觀相關的非語義化樣式可以透過 `style` 屬性與自訂屬性進行管理。這提高了 HTML 的可維護性。
-  * **彈性的樣式覆蓋：**
-    由於使用自訂屬性而不是直接在 `style` 屬性中設定屬性，因此樣式不會被強制應用，並且可以在不使用 `!important` 的情況下覆蓋樣式。這允許更彈性的設計調整。
-  * **輕量級和高擴展性：**
-    它只精選了最少的屬性和功能，因此檔案大小輕巧。它不強制使用特定的設計元件，因此可以彈性地整合到專案特定的設計系統或現有 CSS 中。
-  * **多樣的使用情境：**
-    Selectorize CSS 可以作為直接控制網頁主要設計和佈局的手段，但它也可以與現有 CSS 或元件結合使用，例如輕鬆創建按鈕變體（大小、顏色等），從而有效地實現局部定制。
-  * **簡單的命名規範：**
-    只需在 `style` 屬性中設定的屬性名稱前後添加 `--`。
-    ```html
-    <div style="--color--: var(--red, red);">…</div>
-    ```
-  * **基於前綴的擴展：**
-    使用前綴還可以實現進階樣式：
-      * 設定 `--gt-all_PROPERTY-NAME--:` 將樣式應用於元素的所有直接子元素 (`>*`)。
-      * 在 `ol`、`ul`、`dl`、`div`、`table`、`tbody`、`thead`、`tfoot`、`tr` 上設定 `--item_PROPERTY-NAME--:` 將樣式應用於它們的直接子元素 `li`、`dt`、`dd`、`td`、`th`。
-      * 在 `dl`、`div` 上設定 `--dt_PROPERTY-NAME--:` 將樣式應用於它們的直接子元素 `dt`。
-      * 在 `dl`、`div` 上設定 `--dd_PROPERTY-NAME--:` 將樣式應用於它們的直接子元素 `dd`。
-      * 設定 `--before_content--:` 可以添加 `::before` 偽元素。
-      * 設定 `--after_content--:` 可以添加 `::after` 偽元素。
-      * 設定 `--cq-CONTAINER-CONDITION_PROPERTY-NAME--:` 將根據指定的容器查詢條件設定樣式。別忘了在祖先元素上設定 `--container-type--`。
+* **零建置：**
+  無需任何特殊建置流程，純粹的 CSS（Vanilla CSS）。
 
------
+* **簡單的命名規則，學習成本低：**
+  只要在 HTML `style` 屬性中設定屬性名稱，前後加上 `--` 即可使用。區別於需記憶大量類別名稱的一般實用工具 CSS，提供更直覺且全新的樣式方法。
+
+  ```html
+  <div style="--color--: crimson;"> … </div>
+  ```
+
+* **輕量且高度擴充性：**
+  設計簡潔，檔案大小輕巧。不強制特定設計元件，能靈活整合至專案特有設計系統或既有 CSS。
+
+  ```html
+  <!-- Selectorize CSS + [Open Props](https://open-props.style/) -->
+  <div style="--border--: solid var(--border-size-1) var(--gray-1);"> … </div>
+  ```
+
+* **優化 CSS 程式碼量：**
+  網站特定頁面或元素的 CSS 程式碼容易膨脹。Selectorize CSS 透過提供的自訂屬性套用樣式，減少冗餘類別定義，最大限度控制整體 CSS 程式碼增長。
+
+  ```html
+  <!-- 一般方式 -->
+  <style>
+  .very-unique-grid-1 { display: grid; grid: … ; … }
+  .very-unique-grid-2 { display: grid; grid: … ; … }
+  …
+  </style>
+  …
+  <div class="very-unique-grid-1"> … </div>
+  <div class="very-unique-grid-2"> … </div>
+  …
+
+  <!-- Selectorize CSS -->
+  <div style="--grid--: … ;"> … </div>
+  <div style="--grid--: … ;"> … </div>
+  …
+  ```
+
+* **屬性與值的高效分離：**
+  避免了實用工具 CSS 中常見的類別名稱膨脹，例如 `bg-red`、`border-red`、`text-red`。透過將屬性（如 `background`、`border-color`、`color`）與值（如 `red`、`green`、`blue`）分離，大幅減少 CSS 程式碼量，易於管理。
+
+  ```css
+  /* 一般方式 (<div class="background-pale-red border-red text-red"> … </div>) */
+  .background-red { background: crimson; }
+  .background-pale-red { background: mistyrose; }
+  …
+  .border-red { border-color: crimson; }
+  .border-pale-red { border-color: mistyrose; }
+  …
+  .text-red { color: crimson; }
+  .text-pale-red { color: mistyrose; }
+  …
+
+  /* Selectorize CSS (<div style="--background--: mistyrose; --border-color--: crimson; --color--: crimson;"> … </div>) */
+  [style~="--background--:"] { background: var(--background--); }
+  [style~="--border-color--:"] { border-color: var(--border-color--); }
+  [style~="--color--:"] { color: var(--color--); }
+  ```
+
+* **維持語意化 HTML 結構：**
+  HTML 的文件結構與 `class` 屬性專注於語意表達，與外觀相關的非語意樣式由 `style` 屬性及自訂屬性管理，提升 HTML 維護性。
+
+  ```html
+  <!-- 一般方式 -->
+  <div class="important text-red text-bolder align-center"> … </div>
+
+  <!-- Selectorize CSS -->
+  <div class="important" style="--color--: crimson; --font-weight--: bolder; --text-align--: center;"> … </div>
+  ```
+
+* **靈活的覆蓋能力：**
+  由於樣式寫在 `style` 屬性的自訂屬性上，不會被強制套用，無需使用 `!important`，方便樣式覆蓋與調整。
+
+  ```css
+  /* 一般方式 (<div class="example" style="color: goldenrod;"> … </div>) */
+  .example { color: crimson !important; }
+
+  /* Selectorize CSS (<div class="example" style="--color--: goldenrod;"> … </div>) */
+  .example { color: crimson; } /* 範例：將 goldenrod 修改為 crimson */
+  .example { --color--: crimson; color: var(--color--); } /* 初始值為 crimson，可用 `style` 屬性的 `--color--` 覆蓋 */
+  ```
+
+* **多元的使用場景：**
+  Selectorize CSS 可用於網頁主要設計版面直接實作，也可搭配既有 CSS 或元件，輕鬆製作按鈕顏色、尺寸等局部定制。
+
+  ```html
+  <!-- 12欄網格版面 -->
+  <div style="--grid--: auto-flow / repeat(12, 1fr); --gap--: 1rem;">
+    <div style="--grid-area--: auto / span 2;"> … </div>
+    <div style="--grid-area--: auto / span 4;"> … </div>
+    <div style="--grid-area--: auto / span 6;"> … </div>
+  </div>
+
+  <!-- 按鈕局部定制 -->
+  <p style="--text-align--: center;">
+    <button class="button" style="--background--: royalblue; --color--: white; --min-inline-size--: calc(100% / 3);"> … </button>
+  </p>
+  ```
+
+* **透過前綴擴充功能：**
+
+  * 使用 `--gt-all_PROPERTY-NAME--:` 可將樣式套用至所有子元素（`>*`）。
+
+    ```html
+    <ul style="--flex-flow--: wrap; --gt-all_flex--: auto;"> … </ul>
+    ```
+  * 在 `ol`, `ul`, `dl`, `div`, `table`, `tbody`, `thead`, `tfoot`, `tr` 設定 `--item_PROPERTY-NAME--:`，樣式套用於對應的 `li`, `dt`, `dd`, `td`, `th`。
+
+    ```html
+    <table style="--item_border--: solid thin; --item_padding--: 0.5rem;"> … </table>
+    ```
+  * 在 `dl`, `div` 設定 `--dt_PROPERTY-NAME--:`，樣式套用於最近的 `dt`。
+
+    ```html
+    <dl style="--flex-flow--: wrap; --dt_flex--: 100%;">
+      <dt> … </dt>
+      <dd> … </dd>
+      <dd> … </dd>
+      …
+    </dl>
+    ```
+  * 在 `dl`, `div` 設定 `--dd_PROPERTY-NAME--:`，樣式套用於最近的 `dd`。
+
+    ```html
+    <dl style="--flex-flow--: wrap; --dd_flex--: 100%;">
+      <dt> … </dt>
+      <dt> … </dt>
+      <dd> … </dd>
+      …
+    </dl>
+    ```
+  * 設定 `--before_content--:` 可插入 `::before` 偽元素。
+
+    ```html
+    <p style="--before_content--: '👍';"> … </p>
+    ```
+  * 設定 `--after_content--:` 可插入 `::after` 偽元素。
+
+    ```html
+    <p style="--after_content--: '😀';"> … </p>
+    ```
+  * 設定 `--cq-CONTAINER-CONDITION_PROPERTY-NAME--:`，可依指定的容器查詢條件套用樣式。別忘了在祖先元素設定 `--container-type--`。
+
+    ```html
+    <ul style="--container-type--: inline-size; --flex-flow--: wrap; --gt-all_flex--: 100%; --gap--: 1rem; --item_background--: ghostwhite; --item_padding--: 1rem;">
+      <li style="--cq-i-gt-m_flex--: 1 0 0%;"> … </li>
+      …
+    </ul>
+    ```
+
+Selectorize CSS 設計極簡，建議先查看 CSS 程式碼，想像它的可能用途。
+
+---
 
 ## 安裝方法
 
-1.  從該儲存庫下載 `selectorize.css` 檔案並將其放置在您的專案中。
-2.  在 HTML 的 `<head>` 元素中，按如下方式載入 `selectorize.css`。建議將其放置在其他 CSS 檔案之前。
-    ```html
-    <link rel="stylesheet" href="path/to/your/project/selectorize.css" />
-    ```
+1. 從本倉庫下載 `selectorize.css` 檔案，放入專案中。
+2. 在 HTML 的 `<head>` 中引入 `selectorize.css`，建議置於其他 CSS 之前。
 
------
+   ```html
+   <link rel="stylesheet" href="path/to/your/project/selectorize.css" />
+   ```
 
-## 使用範例
-
-以下範例演示了網格佈局的設定。網格項以 240px 為基本尺寸排列。
-
-```html
-<ul style="--grid--: auto-flow / repeat(auto-fit, minmax(min(240px, 100%), 1fr)); --gap--: var(--space_medium, 1rem); --background--: var(--palest-gray, #e0e0e0); --item_padding--: var(--space_large, 2rem);">
-  <li>…</li>
-  …
-</ul>
-```
-
-以下範例演示了彈性盒子佈局的設定。通常是垂直單列排列，如果容器查詢 (cq) 中內聯尺寸 (i) 大於 (gt) M 尺寸 (m)，則切換為水平單行排列。
-
-```html
-<ul style="--container-type--: inline-size; --flex-flow--: wrap; --gt-all_flex--: 100%; --gap--: var(--space_medium, 1rem); --background--: var(--palest-gray, #e0e0e0); --item_padding--: var(--space_large, 2rem);">
-  <li style="--cq-i-gt-m_flex--: 1 0 0%;">…</li>
-  …
-</ul>
-```
-
-以下範例為 `button` 類別添加了背景色和文字顏色。
-
-```html
-<p style="--text-align--: center;">
-  <button type="button" class="button" style="--background--: var(--red, red); --color--: var(--white, white);">
-    …
-  </button>
-</p>
-```
-
-透過設定 `var(--red, red)` 這樣的備用值，即使未定義 `--red`，預設也會應用紅色。
-以下範例展示了如何使用它來擴展 `button` 類別。
-
-```css
-.button {
-  /* 當設定為 <button class="button" style="--background--: var(--red, red);">…</button> 時，以下 --background-- 將會被覆蓋。 */
-  --background--: transparent; /* 預設背景色為透明 */
-  background: var(--background--);
-  …
-}
-```
-
-或者，
-
-```css
-.button {
-  background: transparent; /* 預設背景色為透明 */
-  …
-}
-.button[style~="--background--:"] {
-  background: var(--background--);
-}
-```
-
------
+---
 
 ## 貢獻
 
 歡迎透過 GitHub Issues 回報錯誤或提出功能建議。
-如果您有興趣貢獻程式碼，請傳送 Pull Request。
+若有意貢獻程式碼，請提交 Pull Request。
 
------
+---
 
-## 授權
+## 授權條款
 
-此專案在 [GPL-2.0 License](https://www.gnu.org/licenses/gpl-2.0.html) 下發布。
-有關詳細資訊，請參閱 `LICENSE` 檔案。
+本專案採用 [GPL-2.0 授權條款](https://www.gnu.org/licenses/gpl-2.0.html)。
+詳情請見 `LICENSE` 檔案。

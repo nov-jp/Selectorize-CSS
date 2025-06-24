@@ -1,130 +1,213 @@
-Traductions : [Japonais](README.md), [Allemand](README.de.md), [Anglais](README.en.md), [Espagnol](README.es.md), [Francais](README.fr.md), [Russe](README.ru.md), [Chinois simplifie](README.zh-CN.md), [Chinois traditionnel](README.zh-TW.md)
+[日本語](README.md) | [Deutsch](README.de.md) | [English](README.en.md) | [Espanol](README.es.md) | [Francais](README.fr.md) | [Русский](README.ru.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md)
 
-Ce README a ete traduit du japonais par [Google Gemini](https://gemini.google.com). Veuillez en tenir compte.
+> **Remarque** : Ce `README` a été traduit depuis le japonais à l’aide de [ChatGPT](https://chatgpt.com/). Merci d’en tenir compte lors de la lecture.
 
------
+---
 
 # Selectorize CSS
 
-Un utilitaire CSS leger qui applique des styles en utilisant les proprietes personnalisees CSS comme selecteurs.
+Un framework CSS utilitaire, minimaliste et léger, qui utilise des propriétés personnalisées comme sélecteurs.
 
------
+Il réhabilite l’attribut `style`, souvent évité, pour offrir une syntaxe CSS intuitive et puissante.
 
-## Apercu
+---
 
-Selectorize CSS met en ?uvre une approche de stylisation "utility-first", similaire a Tailwind CSS, en exploitant les **proprietes personnalisees CSS definies dans l'attribut `style` de HTML** et leurs selecteurs d'attributs CSS correspondants. Cela permet un balisage CSS intuitif et flexible sans avoir besoin de gerer les noms de classes.
+## Aperçu
 
------
+Selectorize CSS adopte une approche *utility-first*, similaire à Tailwind CSS, mais s’appuie sur des **propriétés personnalisées dans l’attribut `style` HTML**, combinées à des **sélecteurs d’attribut CSS**. Cela permet d’éviter la gestion fastidieuse des noms de classes et d’apporter une plus grande flexibilité et clarté au balisage CSS.
 
-## Fonctionnalites
+---
 
-  * **Zero compilation :**
-    Aucun processus de compilation special n'est requis. Il fonctionne comme du CSS pur (Vanilla CSS).
-  * **Faible cout d'apprentissage :**
-    Vous pouvez l'utiliser en ecrivant directement les proprietes dans l'attribut `style` de HTML, comme si vous definissiez des styles en ligne. Cela offre une approche de stylisation plus intuitive et novatrice, contrairement au CSS "utility-first" typique qui necessite de memoriser de nombreux noms de classes.
-  * **Optimisation de la taille du code CSS :**
-    La quantite de code CSS a tendance a augmenter a mesure que vous ajoutez des styles pour des pages ou des elements specifiques d'un site web. Selectorize CSS applique les styles via des proprietes personnalisees predefinies, reduisant ainsi les definitions de classe redondantes et minimisant l'augmentation globale du code CSS.
-  * **Separation efficace des proprietes et des valeurs :**
-    Il empeche la proliferation courante des definitions de classes redondantes comme "`background-red`", "`border-red`" et "`text-red`" que l'on trouve dans de nombreux frameworks CSS utilitaires. En separant les proprietes (`background`, `border`, `color`, etc.) et les valeurs (`red`, `green`, `blue`, etc.) a l'aide de proprietes personnalisees, il reduit considerablement le nombre de lignes de CSS et simplifie la gestion.
-  * **Maintien de la structure HTML semantique :**
-    La structure du document HTML et les attributs `class` peuvent se concentrer sur la signification semantique, tandis que les styles visuels non semantiques peuvent etre geres avec l'attribut `style` et les proprietes personnalisees. Cela ameliore la maintenabilite du HTML.
-  * **Flexibilite de la surcharge de style :**
-    Puisque les proprietes personnalisees sont utilisees a la place de la definition directe des proprietes dans l'attribut `style`, les styles ne sont pas forces, et les surcharges de style peuvent etre effectuees sans utiliser `!important`. Cela permet egalement des ajustements de conception plus flexibles.
-  * **Legerete et haute extensibilite :**
-    La taille du fichier est legere, car seules les proprietes et fonctions essentielles ont ete selectionnees. Il n'impose pas de composants de conception specifiques, permettant une integration flexible dans les systemes de conception specifiques au projet ou dans le CSS existant.
-  * **Scenarios d'utilisation varies :**
-    Selectorize CSS peut etre utilise comme un moyen de controler directement la conception et la mise en page principales des pages web, mais il est egalement efficace pour des personnalisations partielles, comme la creation facile de variations de boutons (taille, couleur, etc.) en le combinant avec du CSS ou des composants existants.
-  * **Convention de nommage simple :**
-    Ajoutez simplement `--` avant et apres le nom de la propriete definie dans l'attribut `style`.
+## Caractéristiques
+
+* **Aucune étape de compilation requise :**
+  Aucune dépendance, aucun build. C’est du CSS pur (Vanilla CSS).
+
+* **Courbe d’apprentissage faible grâce à une convention de nommage simple :**
+  Il suffit d’encadrer le nom de la propriété avec `--` dans l’attribut `style`. Pas besoin de mémoriser des centaines de classes utilitaires.
+
+  ```html
+  <div style="--color--: crimson;"> … </div>
+  ```
+
+* **Léger et très extensible :**
+  Conçu de façon minimaliste, Selectorize CSS est léger et facilement intégrable dans des systèmes de design ou des styles CSS existants.
+
+  ```html
+  <!-- Selectorize CSS + [Open Props](https://open-props.style/) -->
+  <div style="--border--: solid var(--border-size-1) var(--gray-1);"> … </div>
+  ```
+
+* **Réduction du poids global du CSS :**
+  En remplaçant des classes répétitives par des propriétés personnalisées, Selectorize permet de garder un code CSS plus concis et lisible.
+
+  ```html
+  <!-- Méthode classique -->
+  <style>
+    .very-unique-grid-1 { display: grid; grid: …; … }
+    .very-unique-grid-2 { display: grid; grid: …; … }
+    …
+  </style>
+  …
+  <div class="very-unique-grid-1"> … </div>
+  <div class="very-unique-grid-2"> … </div>
+  …
+
+  <!-- Avec Selectorize CSS -->
+  <div style="--grid--: …;"> … </div>
+  <div style="--grid--: …;"> … </div>
+  …
+  ```
+
+* **Séparation claire entre propriété et valeur :**
+  Au lieu de générer des classes telles que `bg-red`, `border-red`, `text-red`, vous séparez les propriétés (`background`, `border-color`, `color`) de leurs valeurs (`crimson`, `blue`, etc.). Résultat : moins de code et meilleure organisation.
+
+  ```css
+  /* Méthode classique (<div class="background-pale-red border-red text-red"> … </div>) */
+  .background-red { background: crimson; }
+  .background-pale-red { background: mistyrose; }
+  …
+  .border-red { border-color: crimson; }
+  .border-pale-red { border-color: mistyrose; }
+  …
+  .text-red { color: crimson; }
+  .text-pale-red { color: mistyrose; }
+  …
+
+  /* Avec Selectorize CSS (<div style="--background--: mistyrose; --border-color--: crimson; --color--: crimson;"> … </div>) */
+  [style~="--background--:"] { background: var(--background--); }
+  [style~="--border-color--:"] { border-color: var(--border-color--); }
+  [style~="--color--:"] { color: var(--color--); }
+  ```
+
+* **Maintien de la sémantique HTML :**
+  L’attribut `class` peut rester sémantique, tandis que les styles purement visuels sont gérés via `style` et des variables CSS, améliorant la lisibilité du HTML.
+
+  ```html
+  <!-- Méthode classique -->
+  <div class="important text-red text-bolder align-center"> … </div>
+
+  <!-- Avec Selectorize CSS -->
+  <div class="important" style="--color--: crimson; --font-weight--: bolder; --text-align--: center;"> … </div>
+  ```
+
+* **Surcharge de style flexible sans `!important` :**
+  Les propriétés personnalisées permettent une surcharge naturelle des styles sans recourir à `!important`, ce qui simplifie les ajustements.
+
+  ```css
+  /* Méthode classique (<div class="example" style="color: goldenrod;"> … </div>) */
+  .example { color: crimson !important; }
+
+  /* Avec Selectorize CSS (<div class="example" style="--color--: goldenrod;"> … </div>) */
+  .example { color: crimson; } /* Exemple : changer goldenrod en crimson */
+  .example { --color--: crimson; color: var(--color--); } /* Exemple : définir la valeur initiale à crimson pour pouvoir la surcharger via `--color--` dans l’attribut `style` */
+  ```
+
+* **Utilisation polyvalente :**
+  Que ce soit pour des systèmes de layout entiers ou des ajustements ponctuels sur des composants, Selectorize CSS est souple et puissant.
+
+  ```html
+  <!-- Grille de 12 colonnes -->
+  <div style="--grid--: auto-flow / repeat(12, 1fr); --gap--: 1rem;">
+    <div style="--grid-area--: auto / span 2;"> … </div>
+    <div style="--grid-area--: auto / span 4;"> … </div>
+    <div style="--grid-area--: auto / span 6;"> … </div>
+  </div>
+
+  <!-- Personnalisation d’un bouton -->
+  <p style="--text-align--: center;">
+    <button class="button" style="--background--: royalblue; --color--: white; --min-inline-size--: calc(100% / 3);"> … </button>
+  </p>
+  ```
+
+* **Extensions via préfixes :**
+
+  * `--gt-all_PROPERTY-NAME--:` applique le style à tous les enfants directs (`>*`).
+
     ```html
-    <div style="--color--: var(--red, red);">…</div>
+    <ul style="--flex-flow--: wrap; --gt-all_flex--: auto;"> … </ul>
     ```
-  * **Extensions basees sur des prefixes :**
-    Un style avance est egalement possible en utilisant des prefixes :
-      * Definir `--gt-all_PROPERTY-NAME--:` stylise tous les enfants directs (`>*`) de l'element.
-      * Definir `--item_PROPERTY-NAME--:` sur `ol`, `ul`, `dl`, `div`, `table`, `tbody`, `thead`, `tfoot`, `tr` stylise leurs enfants immediats `li`, `dt`, `dd`, `td`, `th`.
-      * Definir `--dt_PROPERTY-NAME--:` sur `dl`, `div` stylise leurs enfants `dt` immediats.
-      * Definir `--dd_PROPERTY-NAME--:` sur `dl`, `div` stylise leurs enfants `dd` immediats.
-      * Definir `--before_content--:` ajoute un pseudo-element `::before`.
-      * Definir `--after_content--:` ajoute un pseudo-element `::after`.
-      * Definir `--cq-CONTAINER-CONDITION_PROPERTY-NAME--:` stylise les elements en fonction de la condition de requete de conteneur specifiee. N'oubliez pas de definir `--container-type--` sur un element ancetre.
 
------
+  * `--item_PROPERTY-NAME--:` appliqué à `ol`, `ul`, `dl`, `div`, `table`, `tbody`, `thead`, `tfoot`, `tr`, cible les éléments `li`, `dt`, `dd`, `td` ou `th`.
+
+    ```html
+    <table style="--item_border--: solid thin; --item_padding--: 0.5rem;"> … </table>
+    ```
+
+  * `--dt_PROPERTY-NAME--:` applique un style au `dt` le plus proche.
+
+    ```html
+    <dl style="--flex-flow--: wrap; --dt_flex--: 100%;">
+      <dt> … </dt>
+      <dd> … </dd>
+      <dd> … </dd>
+      …
+    </dl>
+    ```
+
+  * `--dd_PROPERTY-NAME--:` cible les éléments `dd`.
+
+    ```html
+    <dl style="--flex-flow--: wrap; --dd_flex--: 100%;">
+      <dt> … </dt>
+      <dt> … </dt>
+      <dd> … </dd>
+      …
+    </dl>
+    ```
+
+  * `--before_content--:` insère un contenu via `::before`.
+
+    ```html
+    <p style="--before_content--: '👍';"> … </p>
+    ```
+
+  * `--after_content--:` insère un contenu via `::after`.
+
+    ```html
+    <p style="--after_content--: '😀';"> … </p>
+    ```
+
+  * `--cq-CONTAINER-CONDITION_PROPERTY-NAME--:` applique des styles conditionnels via *container queries*. N’oubliez pas de définir `--container-type--` sur l’élément parent.
+
+    ```html
+    <ul style="--container-type--: inline-size; --flex-flow--: wrap; --gt-all_flex--: 100%; --gap--: 1rem; --item_background--: ghostwhite; --item_padding--: 1rem;">
+      <li style="--cq-i-gt-m_flex--: 1 0 0%;"> … </li>
+      …
+    </ul>
+    ```
+
+Selectorize CSS est conçu pour rester extrêmement minimal. Il suffit de consulter son fichier CSS pour en imaginer les possibilités.
+
+---
 
 ## Installation
 
-1.  Telechargez le fichier `selectorize.css` depuis ce depot et placez-le dans votre projet.
-2.  Liez `selectorize.css` dans la section `<head>` de votre HTML, de preference avant les autres fichiers CSS :
-    ```html
-    <link rel="stylesheet" href="path/to/your/project/selectorize.css" />
-    ```
+1. Téléchargez le fichier `selectorize.css` depuis ce dépôt et placez-le dans votre projet.
+2. Liez-le dans la balise `<head>` de votre document HTML, **de préférence avant** les autres fichiers CSS :
 
------
+   ```html
+   <link rel="stylesheet" href="chemin/vers/votre/projet/selectorize.css" />
+   ```
 
-## Exemples d'utilisation
+---
 
-L'exemple suivant montre la configuration d'une mise en page en grille. Les elements de la grille avec une taille de base de 240px seront arranges.
+## Contributions
 
-```html
-<ul style="--grid--: auto-flow / repeat(auto-fit, minmax(min(240px, 100%), 1fr)); --gap--: var(--space_medium, 1rem); --background--: var(--palest-gray, #e0e0e0); --item_padding--: var(--space_large, 2rem);">
-  <li>…</li>
-  …
-</ul>
-```
+Les suggestions, rapports de bugs et idées d’amélioration sont les bienvenus via les Issues GitHub.
+Les contributions via pull request sont également appréciées.
 
-L'exemple suivant montre la configuration d'une mise en page en flexbox. Normalement disposee en une seule colonne verticale, elle passe a une rangee horizontale si la requete de conteneur (cq) pour la taille en ligne (i) est superieure a (gt) la taille M (m).
-
-```html
-<ul style="--container-type--: inline-size; --flex-flow--: wrap; --gt-all_flex--: 100%; --gap--: var(--space_medium, 1rem); --background--: var(--palest-gray, #e0e0e0); --item_padding--: var(--space_large, 2rem);">
-  <li style="--cq-i-gt-m_flex--: 1 0 0%;">…</li>
-  …
-</ul>
-```
-
-L'exemple suivant ajoute une couleur d'arriere-plan et une couleur de texte a la classe `button`.
-
-```html
-<p style="--text-align--: center;">
-  <button type="button" class="button" style="--background--: var(--red, red); --color--: var(--white, white);">
-    …
-  </button>
-</p>
-```
-
-En definissant une valeur de repli comme `var(--red, red)`, la couleur rouge sera appliquee par defaut meme si `--red` n'est pas defini.
-L'exemple suivant montre comment l'utiliser pour etendre une classe `button`.
-
-```css
-.button {
-  /* Si defini comme <button class="button" style="--background--: var(--red, red);">…</button>, le --background-- suivant sera ecrase. */
-  --background--: transparent; /* La couleur d'arriere-plan par defaut est transparente */
-  background: var(--background--);
-  …
-}
-```
-
-Alternativement,
-
-```css
-.button {
-  background: transparent; /* La couleur d'arriere-plan par defaut est transparente */
-  …
-}
-.button[style~="--background--:"] {
-  background: var(--background--);
-}
-```
-
------
-
-## Contribution
-
-Les rapports de bugs et les suggestions de fonctionnalites sont les bienvenus via les Issues de GitHub.
-Si vous etes interesse par la contribution de code, veuillez envoyer une Pull Request.
-
------
+---
 
 ## Licence
 
-Ce projet est sous licence [GPL-2.0](https://www.gnu.org/licenses/gpl-2.0.html).
-Consultez le fichier `LICENSE` pour plus de details.
+Ce projet est publié sous licence [www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)).
+Veuillez consulter le fichier `LICENSE` pour plus de détails.
+
+
+
+
+
+
+
+
