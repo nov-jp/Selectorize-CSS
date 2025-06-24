@@ -94,7 +94,7 @@ The next example shows how to use it to extend a `button` class.
 
 ```css
 .button {
-  /* <button class="button" style="--background--: var(--red, red);">…</button> のように設定された場合、次の --background-- は上書きされます。 */
+  /* When set like <button class="button" style="--background--: var(--red, red);">…</button>, the following --background-- will be overridden. */
   --background--: transparent; /* Default background color is transparent */
   background: var(--background--);
   …
